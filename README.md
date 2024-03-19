@@ -1,6 +1,6 @@
 # Pomodoro Clock
 
-![Pomodoro Clock](screenshots/home_desktop.png)
+![Pomodoro Clock](screenshots/desktop_1.png)
 
 Use our timer based on ancient Chinnese pomodoro technique for time management and improved productivity
 
@@ -28,12 +28,12 @@ A Pomodoro Clock is based on the ancient Chineese time management technique in w
 
 _Home Page (Desktop)_
 
-![Home Page (Desktop)](screenshots/home_desktop.png)
+![Home Page (Desktop)](screenshots/desktop_1.png)
 
 
 _Home Page (Mobile)_
 
-![Home Page (Mobile)](screenshots/home_mobile.png) 
+![Home Page (Mobile)](screenshots/desktop_2.png) 
 
 
 ## Getting Started

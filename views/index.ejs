@@ -18,17 +18,18 @@
 		<link rel="icon" type="image/png" sizes="16x16" href="./favicon_io/favicon-16x16.png">
 		<link rel="manifest" href="./favicon_io/site.webmanifest">
 
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:300,500,700|Material+Symbols+Outlined">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,500,700|Material+Symbols+Outlined">
 
 		<style>
 			body {
-				font-family: 'Rubik', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+                font-family: 'Roboto', sans-serif;
 				font-size: calc(10px + 0.33vw);
 				-webkit-font-smoothing: antialiased;
-				color: #222222;
+				color: #CCCCCC;
 				padding: 15em 0;
 				min-height: 100vh;
 				overflow:hidden;
+                background-color: #1E1E1E;
 			}
 			main, footer {
 				display:flex;
@@ -72,17 +73,16 @@
 				margin: 0 auto;
 				padding: 25px;
 				border-radius: 10px;
-				display: flex;
+				/* display: flex;
 				flex-direction: column;
-				align-items: center;
+				align-items: center; */
 			}
 			input[type="text"] {
-				margin:25px;
+				margin:25px 0;
 				width: 50vw;
-				padding: 10px;
 				border: 1px solid #ccc;
-				color: grey;
-				border-radius: 1em;
+				color:#808080;
+				border-radius: 1em 0 0 1em;
 				font-size: 1.25em;
 				padding: 0.5em 1.5em;
 			}
@@ -92,13 +92,15 @@
 				background-color: #4984E2;
 				color: #fff;
 				border: none;
-				border-radius: 5px;
+				font-size: 1.25em;
+				border-radius: 0 1em 1em 0;
 				cursor: pointer;
 			}
 			#result-container {
 				padding: 0.5em 1.5em;
 				width: 20vw;
 				background-color: #F6F8FA;
+				color:grey;
 				border-radius: 1em;
 				border: 1px solid #ccc;
 				display: flex;
@@ -108,6 +110,14 @@
 			#copy-button {
 				cursor: pointer;
 				color:grey;
+			}
+			#copy-button:active {
+				color: #007bff; /* Change color on click */
+			}
+			#error-container {
+				padding:1em;
+				font-size: 1.5em;
+				color:#DC143C
 			}
 		</style>
 	</head>
@@ -124,14 +134,17 @@
 				<input type="button" value="Shorten" onclick="submitForm()">
 			</form>
 			<div id="result-container">
-				<span id="short-url"></span>
+				<span id="short-url">Your shorten url will appear here</span>
 				<span id = "copy-button" class="material-symbols-outlined">
 					content_copy
 				</span>
 			</div>
+			<div id="error-container">
+			</div>
             <div id="stats-container">
                 <center>Over <b id="count">100</b> links shortened and counting! Join the countless users who've embraced the ease and versatility of our URL shortening service. Whether it's one link or a hundred, we've got you covered. Experience the difference with <b>Alpa</b>.</center>
             </div>
+
 		</main>
 		<footer>
 			<span>Copyright @ 2024</span>
@@ -168,10 +181,34 @@
 			.then(response => response.json())
 			.then(data => {
 				document.getElementById('short-url').textContent = data.shortUrl
+                copyToClipboard(data.shortUrl)
 			})
 			.catch(error => {
-				document.getElementById('short').textContent = ""
+				document.getElementById('error-container').textContent = "Error generating short url"
 			});
+		}
+
+		const copyToClipboard = (textToCopy) => {
+			console.log(textToCopy)
+			if (!navigator.clipboard) {
+				// Fallback: use temporary textarea method
+				const tempInput = document.createElement("textarea");
+				tempInput.value = textToCopy;
+				document.body.appendChild(tempInput);
+				tempInput.select();
+				tempInput.setSelectionRange(0, 99999); /*For mobile devices*/
+				document.execCommand("copy");
+				document.body.removeChild(tempInput);
+			} else {
+				// Use Clipboard API
+				navigator.clipboard.writeText(textToCopy)
+				.then(() => {
+					alert("Text copied to clipboard: " + textToCopy);
+				})
+				.catch(err => {
+					console.error('Error copying to clipboard');
+				});
+			}
 		}
 	</script>
 </html>
