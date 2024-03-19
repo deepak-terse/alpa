@@ -1,4 +1,4 @@
-# Pomodoro Clock
+# Alpa (अल्प) - A URL Shortner
 
 ![Alpa ](screenshots/desktop_1.png)
 
