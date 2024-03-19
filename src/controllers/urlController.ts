@@ -2,7 +2,7 @@ import { FastifyRequest, FastifyReply } from 'fastify';
 import redis from '../utils/redis';
 import config from '../config';
 
-export const shortenUrl = async (request: FastifyRequest, reply: FastifyReply) => {
+export const getShortUrl = async (request: FastifyRequest, reply: FastifyReply) => {
 	const { url } = request.body as { url: string };
 
 	const shortUrlId = Math.random().toString(36).slice(2, 8);
@@ -24,3 +24,8 @@ export const redirectToOriginalUrl = async (request: FastifyRequest, reply: Fast
 
 	reply.redirect(originalUrl);
 };
+
+export const getConfig = async (_request: FastifyRequest, reply: FastifyReply) => {
+    const count = await redis.dbsize();
+    reply.code(200).send({count})
+}

@@ -1,24 +1,24 @@
-# Alpa (अल्प) - A URL Shortner
+# Pomodoro Clock
 
-![Alpa](screenshots/home_desktop.png)
+![Pomodoro Clock](screenshots/home_desktop.png)
 
-Welcome to Alpa, and shorten your long urls in seconds! 🔗
+Use our timer based on ancient Chinnese pomodoro technique for time management and improved productivity
 
 ## About the App
 
-The Alpa is a web application built with Fastify, EJS and Redis. Its primary goal is to have a one stop solution for shortening long urls and related actions. It does not have annoying ads and doesn't require a sign up.
+A Pomodoro Clock is based on the ancient Chineese time management technique in which one breaks the workday down into manageable 25-minute segments called 'Pomodoros. The app lets you start stop the timer and also alerts you as the timer ends. 
 
 ## Key Features
 
-- **Shorten long URLs**: Quickly shorten your lengthy URLs in just a few seconds.
+- **Pomodoros Tracking**: Keep track of the number of promodoros completed in a day
 
-- **Clean and simple Design**: The app features a clean and simple design developed using plain html css and amaterial design.
+- **Play/Pause**: Play/Pause the timer anytime for unplanned activities.
 
-- **Responsive Design**: Access the website from various devices, including desktops, tablets, and smartphones. The responsive design ensures a consistent experience across platforms.
+- **Timer Alert**: Get notified with an alert sound at the end of every timer.
 
 ## Technologies Used
 
-- **Fastify**: A next-generation web framework for Node. js that prioritizes speed, efficiency, and developer experience.
+- **React**: A next-generation web framework for Node. js that prioritizes speed, efficiency, and developer experience.
 
 - **EJS**: A templating engine used by Node JS to create HTML template with minimal code.
 
@@ -42,6 +42,7 @@ _Home Page (Mobile)_
 2. Navigate to the project directory: `cd alpa`
 3. Install dependencies: `npm install`
 4. Setup Redis either locally or on RedisLab and store the credentials.
+5. Run Redis server using `sudo systemctl start redis-server` (for local setup)
 5. Create an `.env` file and configure this details
     ```
     # NODE

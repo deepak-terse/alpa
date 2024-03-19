@@ -56,6 +56,18 @@
 			#logo-container #pa {
 				color:#A4C8FF;
 			}
+            #tag-line {
+                font-size: 1.2em;
+            }
+            #stats-container{
+                padding:5em 15em;
+                font-size: 1.2em;
+                font-weight: 300;
+            }
+            #stats-container b {
+                font-size: 1.2em;
+                color:#4984E2
+            }
 			form {
 				margin: 0 auto;
 				padding: 25px;
@@ -106,7 +118,7 @@
 				<img src = "./assets/alpa-logo.png" alt="Alpa logo">
 				<span id="al">Al</span><span id="pa">pa</span>
 			</div>
-			<span id="tag-line">Shorten your links and make them easier to share!</span>
+			<span id="tag-line">Shrink your links, expand your possibilities!</span>
 			<form id="shorten-form">
 				<input type="text" name="url" placeholder="🔗 Enter your long URL">
 				<input type="button" value="Shorten" onclick="submitForm()">
@@ -117,6 +129,9 @@
 					content_copy
 				</span>
 			</div>
+            <div id="stats-container">
+                <center>Over <b id="count">100</b> links shortened and counting! Join the countless users who've embraced the ease and versatility of our URL shortening service. Whether it's one link or a hundred, we've got you covered. Experience the difference with <b>Alpa</b>.</center>
+            </div>
 		</main>
 		<footer>
 			<span>Copyright @ 2024</span>
@@ -124,6 +139,22 @@
 		</footer>
 	</body>
 	<script>
+        window.onload = function() {
+            fetch('/config', {
+				method: 'GET',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+			})
+			.then(response => response.json())
+			.then(data => {
+                document.getElementById('count').textContent = data.count
+			})
+			.catch(error => {
+                document.getElementById('count').textContent = 100
+			});
+        };
+
 		const submitForm = () => {
 			const formData = new FormData(document.getElementById('shorten-form'));
 
@@ -139,7 +170,7 @@
 				document.getElementById('short-url').textContent = data.shortUrl
 			})
 			.catch(error => {
-				document.getElementById('short').textContent = data.shortUrl
+				document.getElementById('short').textContent = ""
 			});
 		}
 	</script>
