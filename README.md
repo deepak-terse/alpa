@@ -30,12 +30,12 @@ The Alpa is a web application built with Fastify, EJS and Redis. Its primary goa
 
 ## Screenshots
 
-_Home Page (Desktop)_
+_Home Page (Desktop) - Shortening Successful_
 
 ![Home Page (Desktop)](screenshots/desktop_1.png)
 
 
-_Home Page (Mobile)_
+_Home Page (Mobile) - Shortening Error_
 
 ![Home Page (Mobile)](screenshots/desktop_2.png) 
 
