@@ -1,28 +1,32 @@
 # Pomodoro Clock
 
-![Pomodoro Clock](screenshots/desktop_1.png)
+![Alpa ](screenshots/desktop_1.png)
 
-Use our timer based on ancient Chinnese pomodoro technique for time management and improved productivity
+Welcome to Alpa, and shorten your long urls in seconds! 🔗
+
 
 ## About the App
 
-A Pomodoro Clock is based on the ancient Chineese time management technique in which one breaks the workday down into manageable 25-minute segments called 'Pomodoros. The app lets you start stop the timer and also alerts you as the timer ends. 
+The Alpa is a web application built with Fastify, EJS and Redis. Its primary goal is to have a one stop solution for shortening long urls and related actions. It does not have annoying ads and doesn't require a sign up.
+
 
 ## Key Features
 
-- **Pomodoros Tracking**: Keep track of the number of promodoros completed in a day
+- **Shorten long URLs**: Quickly shorten your lengthy URLs in just a few seconds.
 
-- **Play/Pause**: Play/Pause the timer anytime for unplanned activities.
+- **Clean and simple Design**: The app features a clean and simple design developed using plain html css and amaterial design.
 
-- **Timer Alert**: Get notified with an alert sound at the end of every timer.
+- **Responsive Design**: Access the website from various devices, including desktops, tablets, and smartphones. The responsive design ensures a consistent experience across platforms.
+
 
 ## Technologies Used
 
-- **React**: A next-generation web framework for Node. js that prioritizes speed, efficiency, and developer experience.
+- **Fastify**: A next-generation web framework for Node. js that prioritizes speed, efficiency, and developer experience.
 
 - **EJS**: A templating engine used by Node JS to create HTML template with minimal code.
 
 - **Redis**: An in-memory data structure store utilized as a database and cache.
+
 
 ## Screenshots
 
@@ -55,5 +59,6 @@ _Home Page (Mobile)_
     REDIS_PORT=XXXX
     ```
 6. Run the app: `npm start-ts`
+
 
 Enjoy using Alpa for your URL shortening needs! If you encounter any issues or have suggestions, please feel free to open an issue or reach out to us. Happy URL shortening! 🔖🌟
